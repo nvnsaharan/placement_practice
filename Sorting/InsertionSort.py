@@ -1,10 +1,11 @@
 def sort(A):
     for i in range(len(A)):
-        min = i
-        for j in range(i + 1, len(A)):
-            if A[min] > A[j]:
-                min = j
-        A[i], A[min] = A[min], A[i]
+        cur = A[i]
+        j = i
+        while j and cur < A[j - 1]:
+            A[j] = A[j - 1]
+            j -= 1
+        A[j] = cur
 
     print(A)
 
